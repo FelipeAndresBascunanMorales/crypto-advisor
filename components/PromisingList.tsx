@@ -12,7 +12,7 @@ const PromisingList = () => {
   const [submitStatus, setSubmitStatus] = useState('');
 
 
-  const handleNotifySubmit = async (e) => {
+  const handleNotifySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitStatus('submitting');
     
@@ -35,6 +35,7 @@ const PromisingList = () => {
     //   }, 2000);
 
     } catch (error) {
+        console.log(error)
       setSubmitStatus('error');
     }
   };
