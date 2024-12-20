@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 
-export const usePrice = (cryptoId: string) => {
+export const usePrice = (cryptoIds: string[]) => {
   const [priceData, setPriceData] = useState({
     price: null,
     priceChange: 0,
@@ -17,7 +17,7 @@ export const usePrice = (cryptoId: string) => {
     const fetchPrice = async () => {
       try {
         const response = await fetch(
-          `/api/crypto/price?id=${cryptoId}`  // We'll create this API route
+          `/api/crypto/price?ids=${cryptoIds}`  // We'll create this API route
         );
         const data = await response.json();
         
@@ -44,7 +44,7 @@ export const usePrice = (cryptoId: string) => {
       isMounted = false;
       clearInterval(interval);
     };
-  }, [cryptoId]);
+  }, [cryptoIds]);
 
   return priceData;
 };

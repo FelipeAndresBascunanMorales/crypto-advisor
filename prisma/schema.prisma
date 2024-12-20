@@ -1,0 +1,37 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Crypto {
+  id              String   @id
+  symbol          String
+  name            String
+  current_price   Float?
+  price_change_24h Float?
+  market_cap      Float?
+  volume_24h      Float?
+  last_updated    DateTime @default(now())
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  active    Boolean  @default(true)
+}
+
+model AffiliateClick {
+  id        String   @id @default(cuid())
+  exchange  String
+  cryptoId  String
+  timestamp DateTime @default(now())
+  ip        String?  // Optional for tracking
+  converted Boolean  @default(false)
+}

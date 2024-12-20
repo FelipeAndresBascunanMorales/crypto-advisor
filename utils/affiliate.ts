@@ -8,7 +8,8 @@ const AFFILIATE_IDS = {
   export const getAffiliateLink = (exchange: string, cryptoId: string) => {
     switch(exchange) {
       case 'binance':
-        return `https://www.binance.com/en/trade/${cryptoId}_USDT?ref=${AFFILIATE_IDS.binance}`;
+        // return `https://www.binance.com/en/trade/${cryptoId}_USDT?ref=${AFFILIATE_IDS.binance}`;
+        return `https://www.binance.com/en/trade/${cryptoId}_USDT`;
       case 'coinbase':
         return `https://www.coinbase.com/join/${AFFILIATE_IDS.coinbase}?src=android-share`;
       default:
