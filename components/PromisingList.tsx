@@ -18,11 +18,12 @@ const PromisingList = () => {
     
     try {
       // In real app, you'd call your API endpoint here
-      // await fetch('/api/subscribe', {
-      //   method: 'POST',
-      //   body: JSON.stringify({ email }),
-      // });
-      
+      console.log("trying to fetch")
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+      });
+      console.log("something", response)
       // Simulating API call
 
 
@@ -37,6 +38,8 @@ const PromisingList = () => {
     } catch (error) {
         console.log(error)
       setSubmitStatus('error');
+    } finally {
+      setSubmitStatus('done')
     }
   };
 
