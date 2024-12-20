@@ -13,7 +13,7 @@ interface BuyButtonProps {
 }
 
 export const BuyButton: React.FC<BuyButtonProps> = ({ crypto, exchange }) => {
-  const { price, priceChange } = usePrice(crypto.id);
+  const { priceChange } = usePrice(crypto.id);
   
   return (
     <div className="flex flex-col items-center space-y-2">
@@ -22,11 +22,11 @@ export const BuyButton: React.FC<BuyButtonProps> = ({ crypto, exchange }) => {
           trackAffiliateClick(exchange, crypto.id);
           window.open(getAffiliateLink(exchange, crypto.symbol), '_blank');
         }}
-        className="w-full bg-green-500 hover:bg-green-600"
+        className="w-full bg-gray-500 hover:bg-gray-600"
       >
         Buy {crypto.symbol.toUpperCase()}
-        {priceChange > 0 && <span className="ml-2 text-xs">↗️ Rising</span>}
       </Button>
+      {priceChange > 0 && <span className="ml-2 text-xs">↗️ Rising</span>}
       {/* <p className="text-xs text-gray-500">
         Best price on {exchange}: ${price}
       </p> */}
