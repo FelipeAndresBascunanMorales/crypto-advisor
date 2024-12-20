@@ -1,3 +1,4 @@
+"use client"
 // components/BuyButton.jsx
 import { Button } from '@/components/ui/button';
 import { trackAffiliateClick, getAffiliateLink } from '@/utils/affiliate'
@@ -26,9 +27,9 @@ export const BuyButton: React.FC<BuyButtonProps> = ({ crypto, exchange }) => {
         Buy {crypto.symbol.toUpperCase()}
         {priceChange > 0 && <span className="ml-2 text-xs">↗️ Rising</span>}
       </Button>
-      <p className="text-xs text-gray-500">
+      {/* <p className="text-xs text-gray-500">
         Best price on {exchange}: ${price}
-      </p>
+      </p> */}
     </div>
   );
 };
