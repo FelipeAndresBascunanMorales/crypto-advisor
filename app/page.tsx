@@ -1,3 +1,4 @@
+import { BuyButton } from '@/components/BuyButton';
 import PromisingList from '@/components/PromisingList';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { ArrowUpRight, ArrowDownRight, ExternalLink } from 'lucide-react';
@@ -11,6 +12,8 @@ type CryptoData = {
   market_cap: number;
   total_volume: number;
 };
+
+const UNIQ_EXCHANGE = 'binance'
 
 export default async function Home() {
 
@@ -99,6 +102,7 @@ export default async function Home() {
                   >
                     <ExternalLink className="h-4 w-4 text-gray-500" />
                   </a>
+                  <BuyButton crypto={crypto} exchange={UNIQ_EXCHANGE} />
                 </div>
               </div>
             ))}
